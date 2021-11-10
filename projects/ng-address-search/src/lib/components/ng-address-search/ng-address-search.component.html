@@ -1,1 +1,23 @@
-<p>ng-address-search works!</p>
+<div class="position-relative">
+    <form [formGroup]="adresseForm">
+      <input id="{{ id }}" formControlName="adresse" [ngClass]="{ 'is-valid': adresseForm.controls['latitude'].valid,
+        'is-invalid': isInvalid()}" [placeholder]="placeholder" #elSearchAddress
+        class="form-control card rounded-pill py-2 px-3">
+      <div class="spinner-border spinner-border-md hub-text-blue" *ngIf="isLoading | async" role="status"
+        id="adresseSpinner">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <!---------------------VALIDATOR----------------->
+      <div *ngIf="isError(adresseForm, 'adresse', 'required')" class="invalid-feedback">
+        {{ requiredValidatorMsg }}
+      </div>
+      <!------------------END VALIDATOR--------------->
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-action" *ngFor="let addressList of listAddresses | async"
+          (click)="selectAddress(addressList)">
+          <span>{{ addressList.properties.label }}</span>
+        </li>
+      </ul>
+    </form>
+  </div>
+  

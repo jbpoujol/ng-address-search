@@ -1,0 +1,11 @@
+li {
+    cursor: pointer;
+  }
+  
+  #adresseSpinner {
+    font-size: 6px;
+    position: absolute;
+    right: 4px;
+    bottom: 2px;
+  }
+  
