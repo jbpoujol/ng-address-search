@@ -3,5 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "ng-address-search": {
+      "projectType": "library",
+      "root": "projects/ng-address-search",
+      "sourceRoot": "projects/ng-address-search/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ng-address-search/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-address-search/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ng-address-search/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-address-search/src/test.ts",
+            "tsConfig": "projects/ng-address-search/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-address-search/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ng-address-search"
 }
