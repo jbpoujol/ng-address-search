@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/ng-address-search",
       "sourceRoot": "projects/ng-address-search/src",
-      "prefix": "lib",
+      "prefix": "ng",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
